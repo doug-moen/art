@@ -1,0 +1,15 @@
+// the Neovius surface: https://en.wikipedia.org/wiki/Neovius_surface
+
+let
+neovius = make_shape {
+    dist(x,y,z,t): -(3*(cos x+cos y+cos z) + 4*cos x*cos y*cos z),
+    is_3d: true
+};
+rcube r d = cube(d-2*r) >> offset r;
+rcere r d = morph .5 (sphere d, rcube r d);
+
+in
+neovius >> offset 1.2 >> shell 1.2 >> lipschitz 10
+`smooth .4 .intersection` rcube 2.2 18.2
+`difference` repeat_xyz (8,8,8) (sphere 2)  // remove detritus
+>> scale 4   // a nice size for 3D printing
