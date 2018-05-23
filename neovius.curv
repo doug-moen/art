@@ -1,6 +1,9 @@
-// the Neovius surface: https://en.wikipedia.org/wiki/Neovius_surface
+// Copyright 2018 Doug Moen
+// Licensed under the GNU Affero General Public License v3.0
+// See https://www.gnu.org/licenses/agpl-3.0.en.html
 
 let
+// The Neovius surface: https://en.wikipedia.org/wiki/Neovius_surface
 neovius = make_shape {
     dist(x,y,z,t): -(3*(cos x+cos y+cos z) + 4*cos x*cos y*cos z),
     is_3d: true
