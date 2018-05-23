@@ -1,8 +1,11 @@
 # Art
-Personal art projects, made using Curv.
+3D printed sculptures, made using Curv.
 
-|twistor| |gyroid| |neovius|
+Twistor:<br/>
+![](twistor.png)
 
-.. |twistor| image::twistor.png
-.. |gyroid| image::gyroid.png
-.. |neovius| image::neovius.png
+Gyroid:<br/>
+![](gyroid.png)
+
+Neovius:<br/>
+![](neovius.png)
