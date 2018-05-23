@@ -1,0 +1,13 @@
+// Copyright 2018 Doug Moen
+// Licensed under the GNU Affero General Public License v3.0
+// See https://www.gnu.org/licenses/agpl-3.0.en.html
+
+// Mesh export: 'curv -o obj -O vsize=.2', then simplify to 300,000 triangles
+
+gyroid
+>> shell .75 >> lipschitz 2
+>> set_bbox [[-tau*6, -inf, -inf], [tau*6, 0, inf]]
+>> bend {d:0}
+`smooth .375 .intersection` torus {major: tau*4, minor: tau*2}
+>> colour (sRGB.HSV (1/3, 1, .5))
+>> scale 2 // nice size for 3D printing
