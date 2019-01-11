@@ -2,6 +2,11 @@
 // Licensed under the GNU Affero General Public License v3.0
 // See https://www.gnu.org/licenses/agpl-3.0.en.html
 
+parametric {
+   Smoothing :: slider(0,2) = .4;
+   Offset :: slider(0,3) = 1.2;
+   Shell :: slider(0,3) = 1.2;
+}
 let
 // The Neovius surface: https://en.wikipedia.org/wiki/Neovius_surface
 neovius = make_shape {
@@ -12,7 +17,7 @@ rcube r d = cube(d-2*r) >> offset r;
 rcere r d = morph .5 (sphere d, rcube r d);
 
 in
-neovius >> offset 1.2 >> shell 1.2 >> lipschitz 10
-`smooth .4 .intersection` rcube 2.2 18.2
+neovius >> offset Offset >> shell Shell >> lipschitz 10
+`smooth Smoothing .intersection` rcube 2.2 18.2
 `difference` repeat_xyz (8,8,8) (sphere 2)  // remove detritus
 >> scale 4   // a nice size for 3D printing
